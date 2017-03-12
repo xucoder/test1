@@ -20,7 +20,7 @@
     <!-- 
     <li>第一名：北京空气质量：<b>90</b></li>
     <li>第二名：北京空气质量：<b>90</b></li>
-    <li>第三名：北京空气质量：<b>90</b></li>
+    <li>第三名：北京空气质量：<b>90</b></li> 
      -->
 
   </ul>
@@ -32,70 +32,57 @@
  * getData方法
  * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
  * 返回一个数组，格式见函数中示例
- * 未完成，待续。。。。。。。！！！！！！！
  */
-	
 function getData() {
-  /*
-  coding here
-  */
-
-  /*
-  data = [
-    ["北京", 90],
-    ["北京", 90]
-    ……
-  ]
-  */
- 	var sourcelist=document.getElementsByTagName("li") //获取source的li列表
- 	//把列表的数据放入数组中
- 	var data =new Array();
- 	data.push(sourcelist);
- 	
+    var source = document.getElementById('source').getElementsByTagName("li");
+    var data = [];
+    for(var i = 0; i < source.length; i++){
+        //var datelist = source[i].innerText.split('：');
+        //var text=datelist[i].substr(0,2);
+        //alert(text);
+        
+        data.push(source[i]);
+        alert(data);
+        
+    }
   return data;
 }
-
 /**
  * sortAqiData
  * 按空气质量对data进行从小到大的排序
  * 返回一个排序后的数组
  */
 function sortAqiData(data) {
-	data.sort(Function(a,b){
-		return 1;
-	})
+    data.sort(function(a,b){
+    	return b[1]-a[1]
+    	});
+    return data;
 }
-
 /**
  * render
  * 将排好序的城市及空气质量指数，输出显示到id位resort的列表中
  * 格式见ul中的注释的部分
  */
 function render(data) {
-	var ul = document.getElementById("resort");
-	for(var i=0;i<data.length;i++){
-		var li=document.createElement("li");
-		li.innerHTML="第"+(i+1)+"名:"+data[i][0]+","+data[i][1];
-		ul.appendChild(li);
-	}
+    var ul = document.getElementById("resort");
+    
+    for(var i = 0; i < data.length; i++){
+        var li = document.createElement("li");
+        li.innerHTML = "第" + (i+1) + "名 : " + data[i][0] + ": <b>" + data[i][1] + "</b>";
+        ul.appendChild(li);
+    }
 }
-
 function btnHandle() {
   var aqiData = getData();
   aqiData = sortAqiData(aqiData);
   render(aqiData);
-  
 }
-
 function init() {
-
   // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
-	var btn =document.getElementById("sort-btn");
-	btn.onclick=btnHandle();
+ var sortBtn = document.getElementById("sort-btn");
+  sortBtn.onclick = btnHandle;
 }
-
 init();
-
 </script>
 </body>
 </html>
