@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>treetask</title>
+</head>
+<body>
+	<input type="text" id="number">
+	<input type="button" id="leftin" value="左侧入">
+	<input type="button" id="rightin" value="右侧入">
+	&nbsp;&nbsp;&nbsp;
+	<input type="button" id="leftout" value="左侧出">
+	<input type="button" id="rightout" value="右侧出"> <br/>
+	<div id="show">
+		
+	</div>
+	<script type="text/javascript">
+		//var num=new Array();
+		var numb=document.getElementById("number").value;
+		
+	document.getElementById("leftin").onclick=function(){
+		/* Act on the event */
+		alert(numb);
+		document.getElementById("show").innerHTML=numb;
+	};
+
+	</script>
+</body>
+</html>
