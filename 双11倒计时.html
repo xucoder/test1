@@ -10,13 +10,18 @@
         padding: 0px;
     }
     p{
+        display: block;
+        width: 600px;   
         color:red;
-        text-align: center;
+        /*text-align: center;*/
+        margin:100px auto;
+        font-size: 50px;
     }
     #input{
         display: block;
-        width: 300px;
-        margin:0 auto;
+        width: 600px;
+        margin:50px auto;
+        font-size: 40px;
     }
 
 </style>
@@ -40,13 +45,14 @@
         var leftMinute = parseInt(long / 1000 / 60) ;  
         long = long % (1000 * 60 );  
         var leftSeconde = parseInt(long / 1000);  
-        txt.value= now.getFullYear() +"年双11还剩" + leftDay  
+        txt.innerHTML= leftDay  
                 + "天" +leftHour + "时"+leftMinute+"分"+leftSeconde+"秒";  
     }, 1000); 
         }
   
 </script>
   <p>双11倒计时！！！</p>
-  <input type="tex" value="" id="input" size="50">
+  <!-- <input type="tex" value="" id="input" size="50"> -->
+  <label id="input" value=""></label>
 </body>  
 </html> 

@@ -15,9 +15,9 @@
         setInterval(function () {  
         //获取系统当前时间  
         var now = new Date();  
-        //实例化今年跨年时间  
+        //下一年的1月1日时间  月份是0到11表示1到12月
         var targDate = new Date(now.getFullYear() + 1, 0, 1);  
-        //跨年时间与此时此刻时间差（毫秒）  
+        //下一年1月1日跟现在的时间差（毫秒）  
         var long = targDate - now;  
         var leftDay = parseInt(long/ 1000 / 60 / 60 / 24);  
         long = long % (1000 * 60 * 60 * 24);  
